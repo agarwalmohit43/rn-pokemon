@@ -5,7 +5,8 @@ import List from "./List";
 const Home = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
+
+  const fetch = () => {
     setLoading(true);
     getPokemonList()
       .then((res) => {
@@ -16,6 +17,10 @@ const Home = () => {
         setLoading(false);
         Alert.alert("Something went wrong");
       });
+  };
+
+  useEffect(() => {
+    fetch();
   }, []);
   if (!data) {
     return null;

@@ -11,7 +11,7 @@ const ListRow = ({ name, url }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleNavigation}>
-        <Text>{name}</Text>
+        <Text style={styles.name}>{name}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: "gray",
+    alignItems: "center",
+  },
+  name: {
+    fontSize: 20,
   },
 });
 
