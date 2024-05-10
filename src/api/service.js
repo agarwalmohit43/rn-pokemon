@@ -5,7 +5,7 @@ export const getPokemonList = () =>
     pokemonApi
       .get("", {
         params: {
-          limit: 40,
+          limit: 100,
         },
       })
       .then((res) => {

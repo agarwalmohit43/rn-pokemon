@@ -40,7 +40,7 @@ const Details = ({ navigation, route }) => {
         <>
           <View style={styles.imageButtonContainer}>
             <Button
-              title="Go to image gallery"
+              title={`${data.name} image gallery`}
               onPress={() => {
                 navigation.navigate("ImageGallery", {
                   sprites: data?.sprites,
