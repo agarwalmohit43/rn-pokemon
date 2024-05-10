@@ -1,18 +1,19 @@
 import { View, Text, Alert, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
 import { getPokemonList } from "../api/service";
+import List from "./List";
 const Home = () => {
   const [data, setData] = useState(null);
-  const [laoding, setLaoding] = useState(false);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setLaoding(true);
+    setLoading(true);
     getPokemonList()
       .then((res) => {
-        setData(res);
-        setLaoding(false);
+        setData(res?.results);
+        setLoading(false);
       })
       .catch(() => {
-        setLaoding(false);
+        setLoading(false);
         Alert.alert("Something went wrong");
       });
   }, []);
@@ -21,11 +22,7 @@ const Home = () => {
   }
   return (
     <View>
-      {laoding ? (
-        <ActivityIndicator size={"large"} />
-      ) : (
-        <Text>{data?.count}</Text>
-      )}
+      {loading ? <ActivityIndicator size={"large"} /> : <List data={data} />}
     </View>
   );
 };
