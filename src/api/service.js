@@ -3,7 +3,11 @@ import axios from "axios";
 export const getPokemonList = () =>
   new Promise((resolve, reject) => {
     pokemonApi
-      .get()
+      .get("", {
+        params: {
+          limit: 40,
+        },
+      })
       .then((res) => {
         resolve(res.data);
       })

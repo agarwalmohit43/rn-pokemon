@@ -1,7 +1,8 @@
 import { View, Text, Alert, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
 import { getPokemonList } from "../api/service";
-import List from "./List";
+import List from "../components/List";
+
 const Home = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -22,6 +23,7 @@ const Home = () => {
   useEffect(() => {
     fetch();
   }, []);
+
   if (!data) {
     return null;
   }
